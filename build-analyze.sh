@@ -8,7 +8,7 @@ SONAR_HOST_URL=https://sonarcloud.io
 #SONAR_TOKEN= # Access token coming from SonarCloud projet creation page. In this example, it is defined in the environement through a Github secret.
 export SONAR_SCANNER_VERSION="5.0.1.3006" # Find the latest version in the "Linux" link on this page:
                                           # https://docs.sonarcloud.io/advanced-setup/ci-based-analysis/sonarscanner-cli/
-export BUILD_WRAPPER_OUT_DIR="build_wrapper_output_directory" # Directory where build-wrapper output will be placed
+export BUILD_WRAPPER_OUT_DIR="bw-output" # Directory where build-wrapper output will be placed
 
 mkdir $HOME/.sonar
 
@@ -31,7 +31,6 @@ cmake -B build
 build-wrapper-linux-x86-64 --out-dir $BUILD_WRAPPER_OUT_DIR cmake --build build/ --config Release
 
 # Run sonar scanner
-sonar-scanner -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.login=$SONAR_TOKEN -Dsonar.cfamily.compile-commands=$BUILD_WRAPPER_OUT_DIR/compile_commands.json
 sonar-scanner \
   -Dsonar.organization=michael-jabbour-sonarsource \
   -Dsonar.projectKey=michael-jabbour-sonarsource_linux-cmake-otherci-sc \
