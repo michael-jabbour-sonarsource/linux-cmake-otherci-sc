@@ -32,3 +32,9 @@ build-wrapper-linux-x86-64 --out-dir $BUILD_WRAPPER_OUT_DIR cmake --build build/
 
 # Run sonar scanner
 sonar-scanner -Dsonar.host.url="${SONAR_HOST_URL}" -Dsonar.login=$SONAR_TOKEN -Dsonar.cfamily.compile-commands=$BUILD_WRAPPER_OUT_DIR/compile_commands.json
+sonar-scanner \
+  -Dsonar.organization=michael-jabbour-sonarsource \
+  -Dsonar.projectKey=michael-jabbour-sonarsource_linux-cmake-otherci-sc \
+  -Dsonar.sources=src \
+  -Dsonar.cfamily.compile_commands=bw-output/compile_commands.json \
+  -Dsonar.host.url=https://sonarcloud.io
