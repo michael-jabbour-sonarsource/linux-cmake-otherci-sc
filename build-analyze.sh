@@ -35,5 +35,5 @@ sonar-scanner \
   -Dsonar.organization=michael-jabbour-sonarsource \
   -Dsonar.projectKey=michael-jabbour-sonarsource_linux-cmake-otherci-sc \
   -Dsonar.sources=src \
-  -Dsonar.cfamily.compile_commands=bw-output/compile_commands.json \
+  -Dsonar.cfamily.compile-commands=bw-output/compile_commands.json \
   -Dsonar.host.url=https://sonarcloud.io
